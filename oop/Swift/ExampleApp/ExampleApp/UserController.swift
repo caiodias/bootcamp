@@ -16,7 +16,7 @@ public final class UserController {
     private typealias FetchFailScenario = (String) -> Void
     
     private let baseUrl: String = "https://prodigi-bootcamp.firebaseio.com/BEN2ZlzXbpbQZviOuXKvQdybC1v1/messages"
-    private let token: String = "eyJhbGciOiJSUzI1NiIsImtpZCI6ImFhNDZiNzkzOTUxZDZmZjcxOTY2MDU2MTE0ZTA0MWZmNjNjYjIxOWIifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vcHJvZGlnaS1ib290Y2FtcCIsImF1ZCI6InByb2RpZ2ktYm9vdGNhbXAiLCJhdXRoX3RpbWUiOjE0OTk3MjI0MjMsInVzZXJfaWQiOiJCRU4yWmx6WGJwYlFadmlPdVhLdlFkeWJDMXYxIiwic3ViIjoiQkVOMlpselhicGJRWnZpT3VYS3ZRZHliQzF2MSIsImlhdCI6MTQ5OTcyMjQyMywiZXhwIjoxNDk5NzI2MDIzLCJlbWFpbCI6Imtpb2JyZW5vK3Byb2RpZ2lAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbImtpb2JyZW5vK3Byb2RpZ2lAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.nthKJjDp1v7buLIYy3QwGRFFnC9Jke4LNT69xKSEDQSqpB7fv5c1jNsrYkVAHrFySmUwWMNtqdWwS0HHN1kRUxsRgjQm0JtwE9opm3aya0rGyNuR5qZzI1EzViNblWMDVW_tty7oPJ5V_DxkdD15ssjeem1zP7jV4msqcVNIv2VZl3NMHTHDUyQPLFTAOv9c8-Yes-v5ykPSy0HuSrv53vFmt3njxQle5WIlDhpYz5A_Qyw9VBNSW4D2C-FTNszQBNcH_QFo2NJerhFFv-xv4UKg1pUaoRJ6uSvlJPGBjuxENYM9aaKkgVttTdZbMcTkTUCPVKhYA83bTSr0cVx7tw"
+    private let token: String = "eyJhbGciOiJSUzI1NiIsImtpZCI6ImI1ZmEwNmQ5YWFhODg4MjA0YzdiOTBkMjQ2NTU1ZWNlOTFlZDQxMTcifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vcHJvZGlnaS1ib290Y2FtcCIsImF1ZCI6InByb2RpZ2ktYm9vdGNhbXAiLCJhdXRoX3RpbWUiOjE1MDIzOTk5NDAsInVzZXJfaWQiOiJCRU4yWmx6WGJwYlFadmlPdVhLdlFkeWJDMXYxIiwic3ViIjoiQkVOMlpselhicGJRWnZpT3VYS3ZRZHliQzF2MSIsImlhdCI6MTUwMjM5OTk0MCwiZXhwIjoxNTAyNDAzNTQwLCJlbWFpbCI6Imtpb2JyZW5vK3Byb2RpZ2lAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbImtpb2JyZW5vK3Byb2RpZ2lAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.WmJeIl1Nj5AogUNRCH_TrId6jURqJgPhi2vxcwbH0zKrIJKnCzaBqDEw_l1mL9SlSajNPIisV6pmjoPAIU0Rq7IhzhtMgHrha72EgmInyQ1Iyl1mzVgPXQc7KRid6s4edx0RFazcmhuZsTryZGgVeI3BdfEXGZpAf0tepQQfLPNKoO_dihSPHskIxJ9nRNzk3Lc4AOW4wk0pbQV-XovatKg1H24FUOLepUvr_okNzQUCazgoxmsFrErWoEOAum72r_KoBJTOcZMB_67h8UBHcoK1rgYEscfnobYXzXXmXzQerHeRrCRwWKbVKKAjiXn_WfHh7mvukAlFRAHdmuu_yQ"
     
     public private(set) var userList: [User]
     public var delegate: FetchDelegate? = nil
@@ -192,7 +192,7 @@ public final class UserController {
         
         if let resultsInJson = jsonParsed.dictionary {
             for (key, value) in resultsInJson {
-                let userFromJSON = User(withName: value["user_id"].stringValue, description: value["text"].stringValue, objectId: key)
+                let userFromJSON = User(withName: value["user_name"].stringValue, description: value["description"].stringValue, objectId: key)
                 
                 tempList.append(userFromJSON)
             }
