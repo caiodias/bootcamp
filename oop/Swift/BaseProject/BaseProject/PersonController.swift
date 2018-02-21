@@ -9,9 +9,6 @@
 import SystemConfiguration
 import Foundation
 
-typealias SuccessScenario = () -> Void
-typealias FailScenario = (String) -> Void
-
 final class PersonController {
     public private(set) var list: [Person]
     public static let sharedInstance = PersonController()
@@ -22,7 +19,8 @@ final class PersonController {
         self.list = [Person]()
     }
     
-    func fetchListInfo(onSuccess: @escaping SuccessScenario, onFail: @escaping FailScenario) {
+    // Call the endpoint from url object to get the data from it to display the persons from randomuser.ca
+    func fetchListInfo(onSuccess: @escaping () -> Void, onFail: @escaping (String) -> Void) {
         guard let urlRequest = URL(string: url) else {
             onFail("Not possible to create the URL object")
             return
@@ -54,6 +52,7 @@ final class PersonController {
         task.resume()
     }
     
+    // Convert the Data object into Person object
     private func convertToUsers(withData data: Data) throws -> [Person] {
         var tempList = [Person]()
         
