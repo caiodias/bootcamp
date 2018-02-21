@@ -63,6 +63,8 @@ extension ListViewController: UITableViewDataSource {
     }
 }
 
+// MARK: Table View Delegate methods
+
 extension ListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         PersonController.sharedInstance.selectedUser = PersonController.sharedInstance.list[indexPath.row]
