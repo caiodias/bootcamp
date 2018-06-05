@@ -82,8 +82,8 @@ public final class UserController {
         if let url = getUrl() {
             let jsonData = try! JSON([
                 user.objectId: [
-                    "user_id": user.name,
-                    "text": user.description
+                    "user_name": user.name,
+                    "description": user.description
                 ]
                 ]).rawData()
             
